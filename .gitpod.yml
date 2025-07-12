@@ -1,7 +1,13 @@
 # List the start up tasks. Learn more: https://www.gitpod.io/docs/configure/workspaces/tasks
+# runs during prebuild => https://www.gitpod.io/docs/configure/projects/prebuilds
 tasks:
   - name: Script Task
-    init: sudo apt install gh # runs during prebuild => https://www.gitpod.io/docs/configure/projects/prebuilds
+    init: |
+      echo "start Init"
+      sudo apt install gh 
+      curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+      unzip awscliv2.zip
+      sudo ./aws/install
      
     command: echo 'start script'
 
